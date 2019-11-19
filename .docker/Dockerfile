@@ -1,4 +1,5 @@
-FROM php:5.6-apache
+#FROM php:5.6-apache
+FROM php:7.1.8-apache
 
 MAINTAINER Mehmood Asghar
 
@@ -16,9 +17,9 @@ COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN apt update
 RUN apt-get -y install wget zip
 
-RUN wget http://ihsn.org/download/nada44-release-02-28-2018.zip
-RUN unzip nada44-release-02-28-2018.zip
-RUN mv nada44-release nada
+RUN wget https://github.com/ihsn/nada/archive/feature-single-search.zip
+RUN unzip feature-single-search.zip
+RUN mv nada-feature-single-search nada
 COPY database.php /var/www/html/nada/application/config/database.php
 COPY info.php /var/www/html/nada
 RUN ls -l 
@@ -39,7 +40,8 @@ RUN apt install -y libxslt-dev
 RUN apt install -y libpng12-dev
 
 ##required extension for NADA
-RUN docker-php-ext-install mysql
+#RUN docker-php-ext-install mysql
+RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install mbstring
 

@@ -4,16 +4,16 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile
-    image: nada-docker
+    image: nada5_docker
     ports:
-      - 8282:80
+      - 8283:80
     volumes:
       - .:/app
     links:
       - mysql
     environment:
       DB_HOST: mysql
-      DB_DATABASE: nada_docker
+      DB_DATABASE: nada5_docker
       DB_USERNAME: nada_user
       DB_PASSWORD: nada_password      
   mysql:
@@ -21,7 +21,7 @@ services:
       ports:
         - 13306:3306
       environment:
-        MYSQL_DATABASE: nada_docker
+        MYSQL_DATABASE: nada5_docker
         MYSQL_USER: nada_user
         MYSQL_PASSWORD: nada_password
         MYSQL_ROOT_PASSWORD: root
