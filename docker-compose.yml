@@ -18,6 +18,8 @@ services:
       DB_PASSWORD: nada_password      
   mysql:
       image: mysql:5.7
+      container_name: mysql-57
+      restart: always
       ports:
         - 13306:3306
       environment:
