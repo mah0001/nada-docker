@@ -10,20 +10,11 @@ services:
     volumes:
       - .:/app
     links:
-      - mysql
+      - sqlsrv
     environment:
-      DB_HOST: mysql
-      DB_DATABASE: nada5_docker
-      DB_USERNAME: nada_user
-      DB_PASSWORD: nada_password      
-  mysql:
-      image: mysql:5.7
-      container_name: mysql-57
-      restart: always
-      ports:
-        - 13306:3306
-      environment:
-        MYSQL_DATABASE: nada5_docker
-        MYSQL_USER: nada_user
-        MYSQL_PASSWORD: nada_password
-        MYSQL_ROOT_PASSWORD: root
+      DB_HOST: sqlsrv
+      DB_DATABASE: nada5
+      DB_USERNAME: sa
+      DB_PASSWORD: yourStrong(!)Password  
+  sqlsrv:
+      image: "mcr.microsoft.com/mssql/server:latest"
