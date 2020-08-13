@@ -2,8 +2,8 @@ FROM php:7.3-apache
 
 MAINTAINER Mehmood Asghar
 
-COPY .docker/php.ini /usr/local/etc/php/
-COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+COPY php.ini /usr/local/etc/php/
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 
 RUN apt-get update
 RUN apt-get -y install wget zip
