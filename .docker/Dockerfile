@@ -7,14 +7,18 @@ COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 RUN apt-get update
 RUN apt-get -y install wget zip
-#RUN apt-get -y install git
+RUN apt-get -y install git
 
 #download zipped version of nada master branch
-RUN wget https://github.com/ihsn/nada/archive/master.zip
-RUN unzip master.zip
-RUN mv nada-master nada
+#RUN wget https://github.com/ihsn/nada/archive/master.zip
+#RUN unzip master.zip
+#RUN mv nada-master nada
+
+RUN git clone https://github.com/ihsn/nada.git nada
+RUN cd nada && git checkout develop
 
 COPY database.php /var/www/html/nada/application/config/database.php
+COPY db_test.php /var/www/html/nada
 #COPY info.php /var/www/html/nada
 RUN ls -l 
 RUN ls -l /var/www/html

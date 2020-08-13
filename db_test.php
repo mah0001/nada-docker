@@ -1,5 +1,5 @@
+<pre>
 <?php
-
 $serverName = getenv('DB_HOST'); //serverName\instanceName
 $connectionInfo = array( 
                 "Database"=> getenv('DB_DATABASE'), 

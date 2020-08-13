@@ -13,8 +13,13 @@ services:
       - sqlsrv
     environment:
       DB_HOST: sqlsrv
-      DB_DATABASE: nada5
+      DB_DATABASE: nada
       DB_USERNAME: sa
-      DB_PASSWORD: yourStrong(!)Password  
+      DB_PASSWORD: yourStrong(!)Password 
   sqlsrv:
-      image: "mcr.microsoft.com/mssql/server:latest"
+      image: "mcr.microsoft.com/mssql/server:2017-latest"
+      ports:
+        - 1433:1433
+      environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=yourStrong(!)Password
