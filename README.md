@@ -29,7 +29,7 @@ To download the docker and docker source code and setup the project folder struc
 
 ```bash
 #clone repo
-git clone https://github.com/ihsn/nada-docker.git nada_docker
+git clone https://github.com/mah0001/nada-docker.git nada_docker
 
 #switch to project folder
 cd nada_docker
