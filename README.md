@@ -2,7 +2,7 @@
 The docker image contains:
 
 - Apache 2.4
-- PHP 7.3
+- PHP 8.2
 - MySQL 5.7
 
 Follow these steps to configure NADA and run the docker container.
@@ -28,7 +28,7 @@ nada_docker
 To download the docker and docker source code and setup the project folder structure using CLI, run these commands:.
 
 ```bash
-#clone repo
+#clone repo 
 git clone https://github.com/mah0001/nada-docker.git nada_docker
 
 #switch to project folder
@@ -36,6 +36,9 @@ cd nada_docker
 
 #downoad nada source code into a subfolder
 git clone https://github.com/ihsn/nada.git
+
+#copy database.php file to `application/config/database.php`
+cp database.php nada/application/confid/database.php
 ```
 
 Before you can start the docker container, review the `docker-composer.yml` to make sure all settings are correct:
@@ -59,10 +62,8 @@ Mount volume: If you are using the project folder structure as above, there is n
 From the main folder where you have extracted the docker files, run this from command line:
 
 ```bash
-docker-compose up
-
-#OR (this will only work if you have the latest version of docker)
 docker compose up 
+
 ```
 
-That should build the image and launch the containers. If everything works, you should be able to see the php info page at http://localhost:8383/info.php.
+That should build the image and launch the containers. If everything works, you should be able to see the NADA installer at http://localhost:8383/.
