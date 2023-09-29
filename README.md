@@ -38,7 +38,7 @@ cd nada_docker
 git clone https://github.com/ihsn/nada.git
 
 #copy database.php file to `application/config/database.php`
-cp database.php nada/application/confid/database.php
+cp database.php nada/application/config/database.php
 ```
 
 Before you can start the docker container, review the `docker-composer.yml` to make sure all settings are correct:
